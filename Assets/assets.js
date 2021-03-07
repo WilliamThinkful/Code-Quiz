@@ -77,5 +77,4 @@ function startQuiz() {
 
 }
 
-//testing countdown
 quizCountdown();
