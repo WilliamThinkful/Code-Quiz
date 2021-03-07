@@ -1,6 +1,6 @@
 var quizTime = document.getElementById('timer');
 
-
+console.log("connected")
 
 //Questions stored here
 const store = {
@@ -58,6 +58,7 @@ function quizCountdown() {
     var secondsInterval = setInterval(function () {
         if (timeLeft > 0) {
             quizTime.textContent = "Time Remaining: " + timeLeft;
+            timeLeft--;
         }
         else {
             quizTime.textContent = "Time's up!";
