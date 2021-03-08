@@ -1,6 +1,6 @@
 var quizTime = document.getElementById('timer');
 var generateBtn = document.querySelector("#start");
-var currentQuestion = document.getElementById('questions');
+//var currentQuestion = document.getElementById('questions');
 var questionsLeft = 4
 //Questions stored here
 const store = {
@@ -73,23 +73,41 @@ function quizCountdown() {
         }
     }, 1000);
 }
-
+//********* not displaying questions. Why????????
 function displayQuestions() {
+    for (var i = 0; i < store.questions.length;) {
+        console.log(store.questions[i].answers[0]);
+        document.getElementById("questions").innerHTML = store.questions[i].question +
+        "<ul>" +
+
+         "<li><button>" + store.questions[i].answers[0] + "</button></li>" +
+         "<li><button>" + store.questions[i].answers[1] + "</button></li>" +
+         "<li><button>" + store.questions[i].answers[2] + "</button></li>" +
+         "<li><button>" + store.questions[i].answers[3] + "</button></li></ul>";
+
+        
+        // for (var a = 0; a < 4; a++) {
+        //     console.log(store.questions[i].answers[a])
+        //     document.getElementById("answers").innerHTML = store.questions[i].answers[a];
+        //}
+        return(console.log("working"));
+    }
 
 }
 
 //once timer hits zero or quiz is complete, quizOver function will display score and allow user to save score w/ initials to storage
 function quizOver() {
- initials = prompt("enter your initials")
- finalScore = timeLeft
- localStorage.setItem(initials, finalScore)
+ //initials = prompt("enter your initials");
+ finalScore = timeLeft;
+ localStorage.setItem(initials, finalScore);
 }
 
 //once start button is clicked, the quiz will begin
 //****a loop function will be made to cycle through questions
 function startQuiz() {
-quizCountdown();
 displayQuestions();
+quizCountdown();
+
 }
 
 newFunction();
