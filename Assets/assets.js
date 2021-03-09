@@ -73,23 +73,30 @@ function quizCountdown() {
         }
     }, 1000);
 }
-//********* not displaying questions. Why????????
+
 function displayQuestions() {
     for (var i = 0; i < store.questions.length;) {
         console.log(store.questions[i].answers[0]);
         document.getElementById("questions").innerHTML = store.questions[i].question +
         "<ul>" +
-
          "<li><button>" + store.questions[i].answers[0] + "</button></li>" +
          "<li><button>" + store.questions[i].answers[1] + "</button></li>" +
          "<li><button>" + store.questions[i].answers[2] + "</button></li>" +
          "<li><button>" + store.questions[i].answers[3] + "</button></li></ul>";
 
-        
-        // for (var a = 0; a < 4; a++) {
-        //     console.log(store.questions[i].answers[a])
-        //     document.getElementById("answers").innerHTML = store.questions[i].answers[a];
-        //}
+            function answerSelect() {
+                document.querySelector("#questions").addEventListener("click",answerCheck())
+            }
+            function answerCheck() {
+                if (correctAnswer) {
+                    console.log("holy shit")
+                }
+                else{
+                    console.log("still holy shit")
+                }
+            }
+            answerSelect();
+
         return(console.log("working"));
     }
 
